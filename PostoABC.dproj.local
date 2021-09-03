@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2021/06/01 09:12:22.000.317,=C:\Users\Developer\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/06/02 10:09:09.000.598,=C:\Users\Developer\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/08/30 19:41:53.000.546,=C:\Users\Developer\Documents\Embarcadero\Studio\Projects\Unit5.pas</Transaction>
+    <Transaction>2021/08/30 19:43:43.000.538,C:\Users\Developer\Documents\Embarcadero\Studio\Projects\Unit5.pas=C:\Meus Projetos\Controle de Bombas\source\bombas.main.pas</Transaction>
+    <Transaction>2021/08/30 19:43:43.000.538,C:\Users\Developer\Documents\Embarcadero\Studio\Projects\Unit5.dfm=C:\Meus Projetos\Controle de Bombas\source\bombas.main.dfm</Transaction>
+    <Transaction>2021/08/30 19:44:47.000.699,C:\Users\Developer\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Meus Projetos\Controle de Bombas\PostoABC.dproj</Transaction>
+    <Transaction>2021/08/30 20:29:26.000.544,=C:\Meus Projetos\Controle de Bombas\Unit6.pas</Transaction>
+    <Transaction>2021/08/30 20:30:48.000.437,C:\Meus Projetos\Controle de Bombas\Unit6.pas=C:\Meus Projetos\Controle de Bombas\source\bomba.formulario.padrao.view.pas</Transaction>
+    <Transaction>2021/08/30 20:30:48.000.437,C:\Meus Projetos\Controle de Bombas\Unit6.dfm=C:\Meus Projetos\Controle de Bombas\source\bomba.formulario.padrao.view.dfm</Transaction>
+    <Transaction>2021/08/30 20:31:08.000.117,C:\Meus Projetos\Controle de Bombas\source\bombas.main.dfm=C:\Meus Projetos\Controle de Bombas\source\bombas.main.view.dfm</Transaction>
+    <Transaction>2021/08/30 20:31:08.000.117,C:\Meus Projetos\Controle de Bombas\source\bombas.main.pas=C:\Meus Projetos\Controle de Bombas\source\bombas.main.view.pas</Transaction>
+    <Transaction>2021/08/30 20:35:27.000.492,=C:\Meus Projetos\Controle de Bombas\Unit1.pas</Transaction>
+    <Transaction>2021/08/30 20:37:34.000.994,C:\Meus Projetos\Controle de Bombas\Unit1.dfm=C:\Meus Projetos\Controle de Bombas\source\bomba.conexao.datamodule.dfm</Transaction>
+    <Transaction>2021/08/30 20:37:34.000.994,C:\Meus Projetos\Controle de Bombas\Unit1.pas=C:\Meus Projetos\Controle de Bombas\source\bomba.conexao.datamodule.pas</Transaction>
+    <Transaction>2021/08/30 21:43:24.000.232,=C:\Meus Projetos\Controle de Bombas\Unit6.pas</Transaction>
+    <Transaction>2021/08/30 21:43:52.000.231,C:\Meus Projetos\Controle de Bombas\Unit6.dfm=C:\Meus Projetos\Controle de Bombas\source\bomba.setup.connection.view.dfm</Transaction>
+    <Transaction>2021/08/30 21:43:52.000.231,C:\Meus Projetos\Controle de Bombas\Unit6.pas=C:\Meus Projetos\Controle de Bombas\source\bomba.setup.connection.view.pas</Transaction>
+    <Transaction>2021/08/31 01:26:06.000.125,=C:\Meus Projetos\Controle de Bombas\Unit1.pas</Transaction>
+    <Transaction>2021/08/31 01:26:49.000.409,C:\Meus Projetos\Controle de Bombas\source\bomba.tanque.view.pas=C:\Meus Projetos\Controle de Bombas\Unit1.pas</Transaction>
+    <Transaction>2021/08/31 01:26:49.000.409,C:\Meus Projetos\Controle de Bombas\source\bomba.tanque.view.dfm=C:\Meus Projetos\Controle de Bombas\Unit1.dfm</Transaction>
+    <Transaction>2021/09/02 11:16:43.000.371,=C:\Meus Projetos\Controle de Bombas\Unit1.pas</Transaction>
+    <Transaction>2021/09/02 11:26:25.000.283,C:\Meus Projetos\Controle de Bombas\Unit1.dfm=C:\Meus Projetos\Controle de Bombas\source\postoabc.bombas.view.dfm</Transaction>
+    <Transaction>2021/09/02 11:26:25.000.283,C:\Meus Projetos\Controle de Bombas\Unit1.pas=C:\Meus Projetos\Controle de Bombas\source\postoabc.bombas.view.pas</Transaction>
+    <Transaction>2021/09/02 11:26:40.000.636,C:\Meus Projetos\Controle de Bombas\source\bomba.conexao.datamodule.pas=C:\Meus Projetos\Controle de Bombas\source\postoabc.conexao.datamodule.pas</Transaction>
+    <Transaction>2021/09/02 11:26:40.000.636,C:\Meus Projetos\Controle de Bombas\source\bomba.conexao.datamodule.dfm=C:\Meus Projetos\Controle de Bombas\source\postoabc.conexao.datamodule.dfm</Transaction>
+    <Transaction>2021/09/02 11:26:49.000.383,C:\Meus Projetos\Controle de Bombas\source\bomba.formulario.padrao.view.dfm=C:\Meus Projetos\Controle de Bombas\source\postoabc.formulario.padrao.view.dfm</Transaction>
+    <Transaction>2021/09/02 11:26:49.000.383,C:\Meus Projetos\Controle de Bombas\source\bomba.formulario.padrao.view.pas=C:\Meus Projetos\Controle de Bombas\source\postoabc.formulario.padrao.view.pas</Transaction>
+    <Transaction>2021/09/02 11:26:59.000.118,C:\Meus Projetos\Controle de Bombas\source\bomba.setup.connection.view.pas=C:\Meus Projetos\Controle de Bombas\source\postoabc.setup.connection.view.pas</Transaction>
+    <Transaction>2021/09/02 11:26:59.000.118,C:\Meus Projetos\Controle de Bombas\source\bomba.setup.connection.view.dfm=C:\Meus Projetos\Controle de Bombas\source\postoabc.setup.connection.view.dfm</Transaction>
+    <Transaction>2021/09/02 11:27:05.000.980,C:\Meus Projetos\Controle de Bombas\source\bomba.tanque.view.pas=C:\Meus Projetos\Controle de Bombas\source\postoabc.tanque.view.pas</Transaction>
+    <Transaction>2021/09/02 11:27:05.000.980,C:\Meus Projetos\Controle de Bombas\source\bomba.tanque.view.dfm=C:\Meus Projetos\Controle de Bombas\source\postoabc.tanque.view.dfm</Transaction>
+    <Transaction>2021/09/02 11:27:14.000.828,C:\Meus Projetos\Controle de Bombas\source\bombas.main.view.dfm=C:\Meus Projetos\Controle de Bombas\source\postoabc.main.view.dfm</Transaction>
+    <Transaction>2021/09/02 11:27:14.000.828,C:\Meus Projetos\Controle de Bombas\source\bombas.main.view.pas=C:\Meus Projetos\Controle de Bombas\source\postoabc.main.view.pas</Transaction>
+    <Transaction>2021/09/02 23:04:33.354,=C:\Meus Projetos\Controle de Bombas\Unit1.pas</Transaction>
+    <Transaction>2021/09/02 23:05:25.740,C:\Meus Projetos\Controle de Bombas\source\postoabc.report.abastecimento.view.dfm=C:\Meus Projetos\Controle de Bombas\Unit1.dfm</Transaction>
+    <Transaction>2021/09/02 23:05:25.740,C:\Meus Projetos\Controle de Bombas\source\postoabc.report.abastecimento.view.pas=C:\Meus Projetos\Controle de Bombas\Unit1.pas</Transaction>
+  </Transactions>
+	<ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="source"/>
+    <File Path="source\postoabc.bombas.view.pas"/>
+    <File Path="source\postoabc.bombas.view.dfm"/>
+    <File Path="source\postoabc.conexao.datamodule.pas"/>
+    <File Path="source\postoabc.conexao.datamodule.dfm"/>
+    <File Path="source\postoabc.formulario.padrao.view.pas"/>
+    <File Path="source\postoabc.formulario.padrao.view.dfm"/>
+    <File Path="source\postoabc.main.view.pas"/>
+    <File Path="source\postoabc.main.view.dfm"/>
+    <File Path="source\postoabc.setup.connection.view.pas"/>
+    <File Path="source\postoabc.setup.connection.view.dfm"/>
+    <File Path="source\postoabc.tanque.view.pas"/>
+    <File Path="source\postoabc.tanque.view.dfm"/>
+    <File Path="source\postoabc.report.abastecimento.view.pas"/>
+    <File Path="source\postoabc.report.abastecimento.view.dfm"/>
+  </ProjectSortOrder>
+</BorlandProject>

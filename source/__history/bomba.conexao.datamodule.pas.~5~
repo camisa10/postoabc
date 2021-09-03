@@ -1,0 +1,78 @@
+unit bomba.conexao.datamodule;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, System.IniFiles, Vcl.Forms, Vcl.Dialogs, FireDAC.Stan.Intf, FireDAC.Stan.Option,
+  FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async,
+  FireDAC.Phys, FireDAC.Phys.FB, FireDAC.Phys.FBDef, FireDAC.VCLUI.Wait, FireDAC.Phys.IBBase, Data.DB,
+  FireDAC.Comp.Client;
+
+type
+  TdmConexao = class(TDataModule)
+    fdconBomba: TFDConnection;
+    FDPhysFBDriverLink1: TFDPhysFBDriverLink;
+    procedure DataModuleCreate(Sender: TObject);
+  private
+    FPrompt: String;
+    procedure SetPrompt(const Value: String);
+    { Private declarations }
+  public
+    procedure GetConnectionInfo;
+    property Prompt: String read FPrompt write SetPrompt;
+  end;
+
+var
+  dmConexao: TdmConexao;
+
+implementation
+
+uses
+  FireDAC.Phys.IBWrapper;
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+{ TdmConexao }
+
+procedure TdmConexao.DataModuleCreate(Sender: TObject);
+begin
+  try
+    GetConnectionInfo;
+    fdconBomba.Connected := True;
+  except on E: Exception do
+    begin
+      Prompt := 'Ocorreu um erro ao tentar iniciar as conexões com o banco de dados!'+#13#10+'Motivo: '+E.Message;
+      ShowMessage(Prompt);
+      Application.Terminate;
+    end;
+  end;
+end;
+
+procedure TdmConexao.GetConnectionInfo;
+var
+  ArquivoIni: TIniFile;
+begin
+  try
+    ArquivoIni := TIniFile.Create(ExtractFilePath(Application.ExeName)+'bomba.ini');
+    with fdconBomba.Params as TFDPhysFBConnectionDefParams do
+    begin
+      Protocol := TIBProtocol.ipTCPIP;
+      Server := ArquivoIni.ReadString('database', 'server', 'localhost');
+      Port := ArquivoIni.ReadInteger('database', 'port', 3050);
+      Database := ArquivoIni.ReadString('database', 'pathdb', '');
+      Password := ArquivoIni.ReadString('database', 'password', '');
+      UserName := ArquivoIni.ReadString('database', 'user', '');
+    end;
+  finally
+    ArquivoIni.Free;
+  end;
+end;
+
+procedure TdmConexao.SetPrompt(const Value: String);
+begin
+  FPrompt := Value;
+end;
+
+end.

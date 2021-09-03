@@ -1,0 +1,72 @@
+inherited frmBombas: TfrmBombas
+  Caption = 'Bombas'
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited pcPrincipal: TPageControl
+    ActivePage = tbsDados
+  end
+  inherited qryCadastro: TFDQuery
+    SQL.Strings = (
+      'select *'
+      'from bombas')
+    object qryCadastroTANQUE_ID: TIntegerField
+      DisplayLabel = 'C'#243'digo Tanque'
+      FieldName = 'TANQUE_ID'
+      Origin = 'TANQUE_ID'
+      Required = True
+    end
+    object qryCadastroBOMBA_ID: TIntegerField
+      DisplayLabel = 'C'#243'digo Bomba'
+      FieldName = 'BOMBA_ID'
+      Origin = 'BOMBA_ID'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object qryCadastroTIPO_COMBUSTIVEL: TStringField
+      DisplayLabel = 'Tipo de Combust'#237'vel'
+      FieldKind = fkLookup
+      FieldName = 'TIPO_COMBUSTIVEL'
+      LookupDataSet = qryTanques
+      LookupKeyFields = 'TANQUE_ID'
+      LookupResultField = 'TIPO_TANQUE'
+      KeyFields = 'TANQUE_ID'
+      Lookup = True
+    end
+    object qryCadastroESTOQUEATUAL: TFloatField
+      DisplayLabel = 'Estoque Atual do Tanque'
+      FieldKind = fkLookup
+      FieldName = 'ESTOQUEATUAL'
+      LookupDataSet = qryTanques
+      LookupKeyFields = 'TANQUE_ID'
+      LookupResultField = 'ESTOQUEATUAL'
+      KeyFields = 'TANQUE_ID'
+      DisplayFormat = '#,###'
+      Lookup = True
+    end
+    object qryCadastroVALORLITRO: TCurrencyField
+      DisplayLabel = 'Valor do Litro'
+      FieldKind = fkLookup
+      FieldName = 'VALORLITRO'
+      LookupDataSet = qryTanques
+      LookupKeyFields = 'TANQUE_ID'
+      LookupResultField = 'VALORUNIT'
+      KeyFields = 'TANQUE_ID'
+      DisplayFormat = 'R$ #,##0.000'
+      Lookup = True
+    end
+  end
+  object qryTanques: TFDQuery
+    Connection = dmConexao.fdconBomba
+    SQL.Strings = (
+      'select *'
+      'from tanques')
+    Left = 160
+    Top = 240
+  end
+  object dsTanques: TDataSource
+    AutoEdit = False
+    DataSet = qryTanques
+    Left = 256
+    Top = 304
+  end
+end

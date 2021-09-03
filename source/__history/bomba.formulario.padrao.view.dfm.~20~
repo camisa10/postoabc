@@ -1,0 +1,152 @@
+object frmCadPadrao: TfrmCadPadrao
+  Left = 0
+  Top = 0
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsSingle
+  Caption = 'frmCadPadrao'
+  ClientHeight = 411
+  ClientWidth = 675
+  Color = clWhite
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object pcPrincipal: TPageControl
+    Left = 0
+    Top = 40
+    Width = 675
+    Height = 371
+    ActivePage = tbsListagem
+    Align = alClient
+    TabOrder = 0
+    object tbsListagem: TTabSheet
+      Caption = 'Listagem'
+      object Panel1: TPanel
+        Left = 0
+        Top = 0
+        Width = 667
+        Height = 40
+        Align = alTop
+        BevelOuter = bvNone
+        ParentBackground = False
+        TabOrder = 0
+        object spdbtnExcluir: TSpeedButton
+          Left = 100
+          Top = 0
+          Width = 50
+          Height = 40
+          Align = alLeft
+          Caption = 'Excluir'
+        end
+        object spdbtnEditar: TSpeedButton
+          Left = 50
+          Top = 0
+          Width = 50
+          Height = 40
+          Align = alLeft
+          Caption = 'Editar'
+        end
+        object spdbtnNovo: TSpeedButton
+          Left = 0
+          Top = 0
+          Width = 50
+          Height = 40
+          Align = alLeft
+          Caption = 'Novo'
+        end
+      end
+      object dbgListagem: TDBGrid
+        Left = 0
+        Top = 40
+        Width = 667
+        Height = 303
+        Align = alClient
+        TabOrder = 1
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -11
+        TitleFont.Name = 'Tahoma'
+        TitleFont.Style = []
+      end
+    end
+    object tbsDados: TTabSheet
+      Caption = 'Campos'
+      ImageIndex = 1
+      object Panel2: TPanel
+        Left = 0
+        Top = 0
+        Width = 667
+        Height = 40
+        Align = alTop
+        BevelOuter = bvNone
+        ParentBackground = False
+        TabOrder = 0
+        object spdbtnSalvar: TSpeedButton
+          Left = 587
+          Top = 0
+          Width = 80
+          Height = 40
+          Align = alRight
+          Caption = 'Salvar'
+        end
+        object spdbtnCancelar: TSpeedButton
+          Left = 527
+          Top = 0
+          Width = 60
+          Height = 40
+          Align = alRight
+          Caption = 'Cancelar'
+          ExplicitLeft = 537
+        end
+      end
+    end
+  end
+  object Panel3: TPanel
+    Left = 0
+    Top = 0
+    Width = 675
+    Height = 40
+    Align = alTop
+    BevelOuter = bvNone
+    Padding.Left = 10
+    TabOrder = 1
+    object lblTitulo: TLabel
+      Left = 10
+      Top = 0
+      Width = 90
+      Height = 40
+      Align = alLeft
+      Alignment = taCenter
+      Caption = 'Titulo da Tela'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
+      Layout = tlCenter
+      ExplicitHeight = 21
+    end
+  end
+  object qryCadastro: TFDQuery
+    Connection = dmConexao.fdconBomba
+    Left = 336
+    Top = 224
+  end
+  object dsCadastro: TDataSource
+    DataSet = qryCadastro
+    OnDataChange = dsCadastroDataChange
+    Left = 424
+    Top = 224
+  end
+  object FDGUIxWaitCursor1: TFDGUIxWaitCursor
+    Provider = 'Forms'
+    Left = 416
+    Top = 152
+  end
+end

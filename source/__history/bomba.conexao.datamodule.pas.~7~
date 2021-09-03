@@ -1,0 +1,133 @@
+unit bomba.conexao.datamodule;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, System.IniFiles, Vcl.Forms, Vcl.Dialogs, FireDAC.Stan.Intf, FireDAC.Stan.Option,
+  FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async,
+  FireDAC.Phys, FireDAC.Phys.FB, FireDAC.Phys.FBDef, FireDAC.VCLUI.Wait, FireDAC.Phys.IBBase, Data.DB,
+  FireDAC.Comp.Client;
+
+type
+  TConnectionParams = record
+    Server: String;
+    Port: Integer;
+    Database: String;
+    Password: String;
+    UserName: String;
+    procedure GetConnectionInfo;
+    procedure SetConnectionInfo;
+  end;
+
+  TdmConexao = class(TDataModule)
+    fdconBomba: TFDConnection;
+    FDPhysFBDriverLink1: TFDPhysFBDriverLink;
+    procedure DataModuleCreate(Sender: TObject);
+  private
+    FPrompt: String;
+    procedure SetPrompt(const Value: String);
+    { Private declarations }
+  public
+    function TestarConexao(Servidor: String; Porta: Integer; Usuario: String; Senha: String; Database: String): Boolean;
+    property Prompt: String read FPrompt write SetPrompt;
+  end;
+
+var
+  dmConexao: TdmConexao;
+  MinhaConexao: TConnectionParams;
+
+
+implementation
+
+uses
+  FireDAC.Phys.IBWrapper;
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+{ TdmConexao }
+
+procedure TdmConexao.DataModuleCreate(Sender: TObject);
+begin
+  try
+    MinhaConexao.GetConnectionInfo;
+    with dmConexao.fdconBomba.Params as TFDPhysFBConnectionDefParams do
+    begin
+      Protocol := TIBProtocol.ipTCPIP;
+      Server := MinhaConexao.Server;
+      Port := MinhaConexao.Port;
+      Database := MinhaConexao.Database;
+      Password := MinhaConexao.Password;
+      UserName := MinhaConexao.UserName;
+    end;
+    fdconBomba.Connected := True;
+  except on E: Exception do
+    begin
+      Prompt := 'Ocorreu um erro ao tentar iniciar as conexões com o banco de dados!'+#13#10+'Motivo: '+E.Message;
+      ShowMessage(Prompt);
+      Application.Terminate;
+    end;
+  end;
+end;
+
+procedure TConnectionParams.GetConnectionInfo;
+var
+  ArquivoIni: TIniFile;
+begin
+  try
+    ArquivoIni := TIniFile.Create(ExtractFilePath(Application.ExeName)+'bomba.ini');
+    Server := ArquivoIni.ReadString('database', 'server', 'localhost');
+    Port := ArquivoIni.ReadInteger('database', 'port', 3050);
+    Database := ArquivoIni.ReadString('database', 'pathdb', '');
+    Password := ArquivoIni.ReadString('database', 'password', '');
+    UserName := ArquivoIni.ReadString('database', 'user', '');
+  finally
+    ArquivoIni.Free;
+  end;
+end;
+
+procedure TdmConexao.SetPrompt(const Value: String);
+begin
+  FPrompt := Value;
+end;
+
+function TdmConexao.TestarConexao(Servidor: String; Porta: Integer; Usuario, Senha, Database: String): Boolean;
+begin
+  try
+    with dmConexao.fdconBomba.Params as TFDPhysFBConnectionDefParams do
+    begin
+      Protocol := TIBProtocol.ipTCPIP;
+      Server := Servidor;
+      Port := Porta;
+      Database := Database;
+      Password := Senha;
+      UserName := Usuario;
+    end;
+    fdconBomba.Connected := True;
+  except on E: Exception do
+    begin
+      Prompt := 'Ocorreu um erro ao tentar iniciar as conexões com o banco de dados!'+#13#10+'Motivo: '+E.Message;
+      ShowMessage(Prompt);
+      Application.Terminate;
+    end;
+  end;
+end;
+
+procedure TConnectionParams.SetConnectionInfo;
+var
+  ArquivoIni: TIniFile;
+begin
+  try
+    ArquivoIni := TIniFile.Create(ExtractFilePath(Application.ExeName)+'bomba.ini');
+    ArquivoIni.WriteString('database', 'server', Server);
+    ArquivoIni.WriteInteger('database', 'port', Port);
+    ArquivoIni.WriteString('database', 'pathdb', Database);
+    ArquivoIni.WriteString('database', 'password', Password);
+    ArquivoIni.WriteString('database', 'user', UserName);
+  finally
+    ArquivoIni.Free;
+  end;
+end;
+
+end.

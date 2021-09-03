@@ -1,0 +1,93 @@
+unit bomba.formulario.padrao.view;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ComCtrls, bomba.conexao.datamodule, FireDAC.Stan.Intf, FireDAC.Stan.Option,
+  FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async,
+  FireDAC.DApt, Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client, Vcl.Buttons, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Grids,
+  Vcl.DBGrids, FireDAC.UI.Intf, FireDAC.VCLUI.Wait, FireDAC.Comp.UI, System.Actions, Vcl.ActnList;
+
+type
+  TfrmCadPadrao = class(TForm)
+    pcPrincipal: TPageControl;
+    tbsListagem: TTabSheet;
+    tbsDados: TTabSheet;
+    qryCadastro: TFDQuery;
+    dsCadastro: TDataSource;
+    Panel1: TPanel;
+    spdbtnExcluir: TSpeedButton;
+    spdbtnEditar: TSpeedButton;
+    spdbtnNovo: TSpeedButton;
+    Panel2: TPanel;
+    spdbtnSalvar: TSpeedButton;
+    spdbtnCancelar: TSpeedButton;
+    Panel3: TPanel;
+    lblTitulo: TLabel;
+    dbgListagem: TDBGrid;
+    FDGUIxWaitCursor1: TFDGUIxWaitCursor;
+    ActionList1: TActionList;
+    actNovo: TAction;
+    actEditar: TAction;
+    actCancelar: TAction;
+    actSalvar: TAction;
+    procedure FormCreate(Sender: TObject);
+    procedure dsCadastroDataChange(Sender: TObject; Field: TField);
+    procedure actNovoExecute(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    procedure FocarPrimeiroCampo;
+  end;
+
+var
+  frmCadPadrao: TfrmCadPadrao;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmCadPadrao.actNovoExecute(Sender: TObject);
+begin
+  pcPrincipal.ActivePage := tbsDados;
+  qryCadastro.Append;
+
+end;
+
+procedure TfrmCadPadrao.dsCadastroDataChange(Sender: TObject; Field: TField);
+begin
+  spdbtnEditar.Enabled := not dsCadastro.DataSet.IsEmpty;
+  spdbtnExcluir.Enabled := not dsCadastro.DataSet.IsEmpty;
+  if dsCadastro.DataSet.State in [dsBrowse] then
+    lblTitulo.Caption := 'Listagem de '+Self.Caption;
+end;
+
+procedure TfrmCadPadrao.FocarPrimeiroCampo;
+var
+  I: Integer;
+begin
+  for I := 0 to tbsDados.ComponentCount -1 do
+  begin
+    if tbsDados.Components[I] is TWinControl then
+      if (tbsDados.Components[I] as TWinControl).TabOrder = 0 then
+      begin
+        (tbsDados.Components[I] as TWinControl).SetFocus;
+        Break;
+      end;
+  end;
+end;
+
+procedure TfrmCadPadrao.FormCreate(Sender: TObject);
+var
+  I: Integer;
+begin
+  for I := 0 to pcPrincipal.PageCount -1 do
+    pcPrincipal.Pages[I].TabVisible := False;
+  pcPrincipal.ActivePage := tbsListagem;
+
+  if not qryCadastro.Active then
+    qryCadastro.Active := True;
+end;
+
+end.

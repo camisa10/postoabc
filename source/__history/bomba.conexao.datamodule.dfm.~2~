@@ -1,0 +1,13 @@
+object dmConexao: TdmConexao
+  OldCreateOrder = False
+  Height = 383
+  Width = 527
+  object fdconBomba: TFDConnection
+    Params.Strings = (
+      'DriverID=FB'
+      'User_Name=sysdba'
+      'Password=masterkey')
+    Left = 64
+    Top = 24
+  end
+end

@@ -1,0 +1,48 @@
+unit bomba.setup.connection.view;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons;
+
+type
+  TfrmSetupConnection = class(TForm)
+    edtServer: TEdit;
+    Label1: TLabel;
+    edtDatabase: TEdit;
+    Label2: TLabel;
+    edtUserName: TEdit;
+    Label3: TLabel;
+    edtPassword: TEdit;
+    Label4: TLabel;
+    edtPort: TEdit;
+    Label5: TLabel;
+    btnCancelar: TButton;
+    btnSalvar: TButton;
+    btnTestarConexao: TButton;
+    spdbtnFindDatabase: TSpeedButton;
+    fodFindDatabase: TFileOpenDialog;
+    procedure spdbtnFindDatabaseClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmSetupConnection: TfrmSetupConnection;
+
+implementation
+
+{$R *.dfm}
+
+
+
+procedure TfrmSetupConnection.spdbtnFindDatabaseClick(Sender: TObject);
+begin
+  if fodFindDatabase.Execute then
+    edtDatabase.Text := fodFindDatabase.FileName;
+end;
+
+end.

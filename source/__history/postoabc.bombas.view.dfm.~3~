@@ -1,0 +1,35 @@
+inherited frmBombas: TfrmBombas
+  Caption = 'Bombas'
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited qryCadastro: TFDQuery
+    SQL.Strings = (
+      'select *'
+      'from bombas')
+    object qryCadastroTANQUE_ID: TIntegerField
+      FieldName = 'TANQUE_ID'
+      Origin = 'TANQUE_ID'
+      Required = True
+    end
+    object qryCadastroBOMBA_ID: TIntegerField
+      FieldName = 'BOMBA_ID'
+      Origin = 'BOMBA_ID'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+  end
+  object qryTanques: TFDQuery
+    Connection = dmConexao.fdconBomba
+    SQL.Strings = (
+      'select *'
+      'from tanques')
+    Left = 160
+    Top = 240
+  end
+  object dsTanques: TDataSource
+    AutoEdit = False
+    DataSet = qryTanques
+    Left = 256
+    Top = 304
+  end
+end

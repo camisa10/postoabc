@@ -1,0 +1,24 @@
+object dmConexao: TdmConexao
+  OldCreateOrder = False
+  OnCreate = DataModuleCreate
+  Height = 383
+  Width = 527
+  object fdconBomba: TFDConnection
+    Params.Strings = (
+      'User_Name=sysdba'
+      'Password=masterkey'
+      'Database=C:\Meus Projetos\Controle de Bombas\database\BOMBAS.FDB'
+      'Server=localhost'
+      'Port=3050'
+      'CharacterSet=WIN1252'
+      'DriverID=FB'
+      'PageSize=8192')
+    LoginPrompt = False
+    Left = 64
+    Top = 24
+  end
+  object FDPhysFBDriverLink1: TFDPhysFBDriverLink
+    Left = 64
+    Top = 88
+  end
+end

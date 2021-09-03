@@ -1,0 +1,19 @@
+program PostoABC;
+
+uses
+  Vcl.Forms,
+  bombas.main.view in 'source\bombas.main.view.pas' {frmMain},
+  bomba.formulario.padrao.view in 'source\bomba.formulario.padrao.view.pas' {frmCadPadrao},
+  bomba.conexao.datamodule in 'source\bomba.conexao.datamodule.pas' {dmConexao: TDataModule},
+  bomba.setup.connection.view in 'source\bomba.setup.connection.view.pas' {frmSetupConnection},
+  bomba.tanque.view in 'source\bomba.tanque.view.pas' {frmTanque};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TdmConexao, dmConexao);
+  Application.CreateForm(TfrmMain, frmMain);
+  Application.Run;
+end.
